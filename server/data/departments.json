@@ -1,0 +1,234 @@
+{
+  "central_authorities": [
+    {
+      "id": "morth",
+      "name": "Ministry of Road Transport and Highways",
+      "portal_url": "https://rtionline.gov.in/",
+      "grievance_portal": "https://pgportal.gov.in/",
+      "category": "National Highways, NHAI & Road Transport",
+      "officer": "Central Public Information Officer (CPIO)"
+    },
+    {
+      "id": "railways",
+      "name": "Ministry of Railways (Railway Board)",
+      "portal_url": "https://rtionline.gov.in/",
+      "grievance_portal": "https://pgportal.gov.in/",
+      "category": "Indian Railways, Train Services & Stations",
+      "officer": "Central Public Information Officer (CPIO)"
+    },
+    {
+      "id": "mohw",
+      "name": "Ministry of Health and Family Welfare",
+      "portal_url": "https://rtionline.gov.in/",
+      "grievance_portal": "https://pgportal.gov.in/",
+      "category": "Healthcare, AIIMS, CGHS & Central Hospitals",
+      "officer": "Central Public Information Officer (CPIO)"
+    },
+    {
+      "id": "mord",
+      "name": "Ministry of Rural Development",
+      "portal_url": "https://rtionline.gov.in/",
+      "grievance_portal": "https://pgportal.gov.in/",
+      "category": "Rural Development, MGNREGA Policy & PMGSY",
+      "officer": "Central Public Information Officer (CPIO)"
+    },
+    {
+      "id": "mohua",
+      "name": "Ministry of Housing and Urban Affairs",
+      "portal_url": "https://rtionline.gov.in/",
+      "grievance_portal": "https://pgportal.gov.in/",
+      "category": "Urban Schemes, PMAY Urban & Smart Cities",
+      "officer": "Central Public Information Officer (CPIO)"
+    },
+    {
+      "id": "posts",
+      "name": "Department of Posts (India Post)",
+      "portal_url": "https://rtionline.gov.in/",
+      "grievance_portal": "https://pgportal.gov.in/",
+      "category": "Postal Delivery, Speed Post & Postal Savings",
+      "officer": "Central Public Information Officer (CPIO)"
+    },
+    {
+      "id": "epfo",
+      "name": "Employees' Provident Fund Organisation (EPFO)",
+      "portal_url": "https://rtionline.gov.in/",
+      "grievance_portal": "https://epfigms.gov.in/",
+      "category": "Provident Fund, UAN & Pension Claims",
+      "officer": "Central Public Information Officer (CPIO)"
+    },
+    {
+      "id": "esic",
+      "name": "Employees' State Insurance Corporation (ESIC)",
+      "portal_url": "https://rtionline.gov.in/",
+      "grievance_portal": "https://pgportal.gov.in/",
+      "category": "ESI Medical & Cash Benefits",
+      "officer": "Central Public Information Officer (CPIO)"
+    },
+    {
+      "id": "cbdt",
+      "name": "Central Board of Direct Taxes (Income Tax)",
+      "portal_url": "https://rtionline.gov.in/",
+      "grievance_portal": "https://pgportal.gov.in/",
+      "category": "Income Tax, PAN & Tax Refunds",
+      "officer": "Central Public Information Officer (CPIO)"
+    },
+    {
+      "id": "cbic",
+      "name": "Central Board of Indirect Taxes and Customs (GST)",
+      "portal_url": "https://rtionline.gov.in/",
+      "grievance_portal": "https://pgportal.gov.in/",
+      "category": "GST, Customs & Central Excise",
+      "officer": "Central Public Information Officer (CPIO)"
+    },
+    {
+      "id": "dot",
+      "name": "Department of Telecommunications",
+      "portal_url": "https://rtionline.gov.in/",
+      "grievance_portal": "https://pgportal.gov.in/",
+      "category": "Telecom, BSNL, MTNL & Spectrum",
+      "officer": "Central Public Information Officer (CPIO)"
+    },
+    {
+      "id": "consumer_affairs",
+      "name": "Department of Consumer Affairs",
+      "portal_url": "https://rtionline.gov.in/",
+      "grievance_portal": "https://consumerhelpline.gov.in/",
+      "category": "Consumer Rights, Pricing & Standards",
+      "officer": "Central Public Information Officer (CPIO)"
+    },
+    {
+      "id": "dfs_banks",
+      "name": "Department of Financial Services (PSU Banks)",
+      "portal_url": "https://rtionline.gov.in/",
+      "grievance_portal": "https://pgportal.gov.in/",
+      "category": "Public Sector Banks (SBI, PNB) & LIC",
+      "officer": "Central Public Information Officer (CPIO)"
+    },
+    {
+      "id": "passports",
+      "name": "Ministry of External Affairs (Passport Division)",
+      "portal_url": "https://rtionline.gov.in/",
+      "grievance_portal": "https://pgportal.gov.in/",
+      "category": "Passport Services & Overseas Visas",
+      "officer": "Central Public Information Officer (CPIO)"
+    },
+    {
+      "id": "uidai",
+      "name": "Unique Identification Authority of India (UIDAI)",
+      "portal_url": "https://rtionline.gov.in/",
+      "grievance_portal": "https://pgportal.gov.in/",
+      "category": "Aadhaar System & Enrollment",
+      "officer": "Central Public Information Officer (CPIO)"
+    }
+  ],
+  "state_authorities": [
+    {
+      "id": "municipal_engineering",
+      "name": "Municipal Corporation (Engineering & Works Wing)",
+      "jurisdiction": "STATE",
+      "category": "Roads, Potholes, Pavements & Civil Works",
+      "officer": "Public Information Officer (Executive Engineer / Municipal Commissioner)",
+      "portal_url": "https://cdma.telangana.gov.in/",
+      "portal_guidance": "Submit via State Municipal Portal or send via Registered Post to the Municipal Commissioner."
+    },
+    {
+      "id": "state_water_board",
+      "name": "Water Supply & Sewerage Board",
+      "jurisdiction": "STATE",
+      "category": "Drinking Water Supply, Pipe Leaks, Contamination & Drainage",
+      "officer": "Public Information Officer (General Manager / Executive Engineer, Water Works)",
+      "portal_url": "https://www.hyderabadwater.gov.in/",
+      "portal_guidance": "Submit to the Water Supply Board or file via Municipal Citizen Services."
+    },
+    {
+      "id": "state_electricity_discom",
+      "name": "State Electricity Distribution Company (DISCOM)",
+      "jurisdiction": "STATE",
+      "category": "Power Outages, Burnt Transformers, Electricity Billing & Meters",
+      "officer": "Public Information Officer (Divisional Engineer, Electricity Operation)",
+      "portal_url": "https://www.tssspdcl.com/",
+      "portal_guidance": "Submit to the Circle/Divisional Engineer of your local electricity distribution company."
+    },
+    {
+      "id": "municipal_health_sanitation",
+      "name": "Municipal Corporation (Sanitation & Waste Management)",
+      "jurisdiction": "STATE",
+      "category": "Garbage Clearance, Street Sweeping & Public Hygiene",
+      "officer": "Public Information Officer (Health Officer / Sanitation Inspector)",
+      "portal_url": "https://cdma.telangana.gov.in/",
+      "portal_guidance": "Submit to the Municipal Commissioner or Sanitation Wing."
+    },
+    {
+      "id": "municipal_town_planning",
+      "name": "Municipal Corporation (Town Planning Wing)",
+      "jurisdiction": "STATE",
+      "category": "Building Permissions, Illegal Encroachments & Layout Violations",
+      "officer": "Public Information Officer (City Planner / Town Planning Officer)",
+      "portal_url": "https://cdma.telangana.gov.in/",
+      "portal_guidance": "Submit to the Municipal Town Planning department."
+    },
+    {
+      "id": "district_revenue_collectorate",
+      "name": "District Collectorate & Revenue Department",
+      "jurisdiction": "STATE",
+      "category": "Land Records, Patta Passbooks, Survey Numbers & Land Acquisition",
+      "officer": "Public Information Officer (District Revenue Officer)",
+      "portal_url": "https://ccla.telangana.gov.in/",
+      "portal_guidance": "Submit to the Collectorate Revenue Office or Tahsildar."
+    },
+    {
+      "id": "tahsildar_mandal_office",
+      "name": "Tahsildar / Mandal Revenue Office (MRO)",
+      "jurisdiction": "STATE",
+      "category": "Caste, Income Certificates, Mutation & Boundary Enquiries",
+      "officer": "Public Information Officer (Tahsildar / Deputy Tahsildar)",
+      "portal_url": "https://ccla.telangana.gov.in/",
+      "portal_guidance": "Submit in person or via Registered Post to the Tahsildar Office."
+    },
+    {
+      "id": "district_general_hospital",
+      "name": "Government District Hospital / Medical Superintendent",
+      "jurisdiction": "STATE",
+      "category": "Hospital Medical Records, Scans, Free Medicine & Patient Care",
+      "officer": "Public Information Officer (Medical Superintendent / Resident Medical Officer)",
+      "portal_url": "https://health.telangana.gov.in/",
+      "portal_guidance": "Submit directly to the Hospital Superintendent. Mark bold 'UNDER SECTION 7(1) - 48 HOUR URGENCY' for life/medical emergencies."
+    },
+    {
+      "id": "state_police_commissionerate",
+      "name": "Police Commissionerate / District SP Office",
+      "jurisdiction": "STATE",
+      "category": "FIR Copies, Complaint Records & Station General Diary Extracts",
+      "officer": "Public Information Officer (Deputy Superintendent of Police / ACP)",
+      "portal_url": "https://tspolice.gov.in/",
+      "portal_guidance": "Submit to the District SP Office or Police Commissionerate."
+    },
+    {
+      "id": "state_civil_supplies",
+      "name": "Civil Supplies Corporation / District Supply Office",
+      "jurisdiction": "STATE",
+      "category": "Ration Cards, Fair Price Shops & Rice Allotments",
+      "officer": "Public Information Officer (District Supply Officer)",
+      "portal_url": "https://epds.telangana.gov.in/",
+      "portal_guidance": "Submit to the District Civil Supplies Office."
+    },
+    {
+      "id": "panchayat_raj_rural",
+      "name": "Panchayat Raj & Rural Development (Gram Panchayat)",
+      "jurisdiction": "STATE",
+      "category": "Gram Panchayat Funds, Village CC Roads & Local Streetlights",
+      "officer": "Public Information Officer (Panchayat Secretary / MPDO)",
+      "portal_url": "https://epanchayat.telangana.gov.in/",
+      "portal_guidance": "Submit to the Mandal Parishad Development Officer (MPDO) or Gram Panchayat office."
+    },
+    {
+      "id": "state_education_deodata",
+      "name": "District Educational Office (DEO)",
+      "jurisdiction": "STATE",
+      "category": "Government School Facilities, Teacher Attendance & Mid-Day Meals",
+      "officer": "Public Information Officer (District Educational Officer)",
+      "portal_url": "https://schooledu.telangana.gov.in/",
+      "portal_guidance": "Submit to the District Educational Officer."
+    }
+  ]
+}

@@ -1,0 +1,164 @@
+[
+  {
+    "id": "bpl_rti_fee_waiver",
+    "title": "BPL RTI Fee Exemption & Free Copies (Section 7(5))",
+    "keywords": [
+      "bpl",
+      "below poverty line",
+      "fee",
+      "fee waiver",
+      "free rti",
+      "charges",
+      "10 rs",
+      "ten rupees",
+      "exempt",
+      "waiver",
+      "concession",
+      "white ration card",
+      "cost",
+      "application fee"
+    ],
+    "direct_answer": "Under Section 7(5) of the Right to Information Act, 2005, applicants holding a Below Poverty Line (BPL) card or valid White Food Security Card are completely exempt from paying the Rs. 10 application fee as well as all document copy and inspection fees. When applying on rtionline.gov.in or in person, you only need to upload or attach a photocopy of your valid BPL Card / Food Security Certificate (PDF under 1 MB).",
+    "source_name": "RTI Online Official FAQ & DoPT Circular (Govt. of India)",
+    "source_url": "https://rtionline.gov.in/guidelines.php",
+    "voice_summary": "Under Section 7(5) of the RTI Act, citizens holding a BPL card have a zero-rupee fee for RTI applications and certified copies. You do not need to file an RTI to verify this.",
+    "section_reference": "Section 7(5), RTI Act 2005"
+  },
+  {
+    "id": "mgnrega_wages_muster_roll",
+    "title": "MGNREGA Daily Wages & Muster Roll Records",
+    "keywords": [
+      "mgnrega",
+      "nrega",
+      "wage",
+      "wages",
+      "daily wage",
+      "job card",
+      "muster roll",
+      "100 days",
+      "work payment",
+      "nrega payment",
+      "panchayat work"
+    ],
+    "direct_answer": "MGNREGA wage rates, individual job card records, work attendance, and muster roll disbursement data are published proactively under Section 4(1)(b) of the RTI Act. You can verify your attendance days, sanctioned work orders, and bank credit status directly by State, District, Mandal, and Gram Panchayat on the official MGNREGA MIS portal without filing an RTI.",
+    "source_name": "Ministry of Rural Development - MGNREGA MIS Portal",
+    "source_url": "https://nrega.nic.in/netnrega/stHome.aspx",
+    "voice_summary": "MGNREGA job card payments, wage rates, and muster roll registers are public records accessible live on nrega.nic.in by choosing your panchayat.",
+    "section_reference": "Section 4(1)(b), Proactive Disclosures"
+  },
+  {
+    "id": "pm_kisan_installment_status",
+    "title": "PM-KISAN Samman Nidhi Installment & eKYC Verification",
+    "keywords": [
+      "pm kisan",
+      "pmkisan",
+      "installment",
+      "2000",
+      "two thousand",
+      "farmer installment",
+      "beneficiary status",
+      "kisan samman",
+      "ekyc"
+    ],
+    "direct_answer": "PM-KISAN DBT installment transfers and eligibility status are published online under the Public Financial Management System. Any registered farmer can immediately view their installment credit date, bank account last digits, PFMS processing status, and Land Seeding confirmation on the PM-KISAN portal using their registered mobile number or registration number.",
+    "source_name": "Department of Agriculture & Farmers Welfare - PM-KISAN Portal",
+    "source_url": "https://pmkisan.gov.in/BeneficiaryStatus_New.aspx",
+    "voice_summary": "You can verify your PM-KISAN installment status and Aadhaar bank link immediately on pmkisan.gov.in with your mobile number.",
+    "section_reference": "Direct Benefit Transfer Public Portal"
+  },
+  {
+    "id": "municipal_property_tax_records",
+    "title": "Municipal Property Tax Assessment & Payment Receipts",
+    "keywords": [
+      "property tax",
+      "ptin",
+      "house tax",
+      "assessment",
+      "mutation",
+      "tax receipt",
+      "tax dues",
+      "municipal tax"
+    ],
+    "direct_answer": "Municipal property tax assessments, annual rental values, outstanding dues, and historic payment receipts are published proactively under Section 4 on State Urban Development portals (e.g., CDMA Telangana / GHMC). You can look up the assessment register and download official digitized payment receipts directly using your 10-digit Property Tax Identification Number (PTIN) or Door Number.",
+    "source_name": "State Municipal Administration & Urban Development Portal",
+    "source_url": "https://cdma.telangana.gov.in/",
+    "voice_summary": "Property tax assessments, dues, and payment receipts can be downloaded directly from the municipal portal using your PTIN.",
+    "section_reference": "Municipal Section 4 Disclosures"
+  },
+  {
+    "id": "ration_card_nfsa_quota",
+    "title": "NFSA Monthly Foodgrain Entitlements & Ration Shop Allocation",
+    "keywords": [
+      "ration",
+      "rice",
+      "pds",
+      "food security",
+      "nfsa",
+      "quota",
+      "ration shop",
+      "dealer",
+      "wheat",
+      "fair price shop",
+      "fps"
+    ],
+    "direct_answer": "Under the National Food Security Act (NFSA) and PMGKAY, Priority Household (PHH) cardholders are entitled to 5 kg of foodgrains per person per month completely free of cost (AAY cardholders receive 35 kg per family). Monthly allotment and stock lifting registers for every Fair Price Shop (FPS) are publicly transparent on the National Food Security Portal.",
+    "source_name": "Department of Food & Public Distribution - NFSA Portal",
+    "source_url": "https://nfsa.gov.in/portal/fps_ration_card",
+    "voice_summary": "NFSA free ration entitlements of 5 kg per member per month and ration shop stock data can be checked live on nfsa.gov.in.",
+    "section_reference": "Section 4(1)(b), NFSA Public Portal"
+  },
+  {
+    "id": "voter_id_epic_status",
+    "title": "Electoral Roll & Voter ID Polling Station Status",
+    "keywords": [
+      "voter id",
+      "voter card",
+      "epic",
+      "electoral roll",
+      "polling booth",
+      "vote list",
+      "voter registration"
+    ],
+    "direct_answer": "The complete statutory Electoral Roll is published by the Election Commission of India. Citizens can search their registration details, assembly constituency, and assigned polling station, or download their digital e-EPIC directly on the ECI Voters Service Portal without filing an RTI application.",
+    "source_name": "Election Commission of India - Voters Service Portal",
+    "source_url": "https://voters.eci.gov.in/",
+    "voice_summary": "Your voter registration, serial number in the roll, and polling booth can be checked instantly on voters.eci.gov.in.",
+    "section_reference": "ECI Statutory Public Register"
+  },
+  {
+    "id": "drinking_water_connection_sla",
+    "title": "Drinking Water Connection SLA & Tariff Structure",
+    "keywords": [
+      "water connection",
+      "hmwssb",
+      "drinking water",
+      "water pipeline",
+      "water tariff",
+      "water bill",
+      "water board"
+    ],
+    "direct_answer": "Water board tariffs, domestic water delivery schedules, and the Citizen Charter mandate for new tap connections (mandating a 15-day service delivery SLA) are public disclosures. Current water bills, online payment history, and tanker booking status are available on the Water Supply and Sewerage Board official portal.",
+    "source_name": "Water Supply & Sewerage Board Citizen Charter",
+    "source_url": "https://www.hyderabadwater.gov.in/",
+    "voice_summary": "Water connection tariffs and the 15-day SLA charter are available publicly on the municipal water board website.",
+    "section_reference": "Public Citizen Charter"
+  },
+  {
+    "id": "pmay_housing_beneficiary_list",
+    "title": "PMAY Urban & Gramin Sanctioned Beneficiary List",
+    "keywords": [
+      "pmay",
+      "housing scheme",
+      "pradhan mantri awas",
+      "housing beneficiary",
+      "secc list",
+      "subsidy",
+      "awas yojana"
+    ],
+    "direct_answer": "Sanctioned beneficiary lists for Pradhan Mantri Awas Yojana (PMAY) are proactive public disclosures. Citizens can check whether their name or application ID is in the approved beneficiary list by searching by State, District, and BPL/SECC identification on the PMAY portal.",
+    "source_name": "Ministry of Housing and Urban Affairs - PMAY Portal",
+    "source_url": "https://pmaymis.gov.in/",
+    "voice_summary": "PMAY housing beneficiary lists can be checked directly on the official PMAY portal with your district and registration details.",
+    "section_reference": "Section 4 PMAY Disclosures"
+  }
+]
