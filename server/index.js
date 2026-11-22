@@ -42,6 +42,24 @@ app.get("/api/health", (req, res) => {
   });
 });
 
+// Serve frontend build in production / Render deployment
+const clientDistPath = path.resolve(__dirname, "../client/dist");
+app.use(express.static(clientDistPath));
+
+app.get("*", (req, res) => {
+  if (req.path.startsWith("/api/")) {
+    return res.status(404).json({ error: "API endpoint not found" });
+  }
+  const indexPath = path.resolve(clientDistPath, "index.html");
+  res.sendFile(indexPath, (err) => {
+    if (err) {
+      res.status(200).send("JanSawaal API is active. Build frontend via 'npm run build' to see the UI.");
+    }
+  });
+});
+
+export default app;
+
 app.listen(PORT, () => {
   console.log(`[JanSawaal Server] Running on http://localhost:${PORT}`);
   console.log(`[JanSawaal Server] Live Deployment Mode: Strictly Real API (Groq: ${Boolean(process.env.GROQ_API_KEY)}, Gemini: ${Boolean(process.env.GEMINI_API_KEY)})`);
