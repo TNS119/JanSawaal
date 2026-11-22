@@ -6,11 +6,8 @@ const GROQ_API_KEY = process.env.GROQ_API_KEY;
  * Transcribes audio buffer via Groq Whisper API (whisper-large-v3-turbo)
  */
 export function transcribeAudioWithGroq(audioBuffer, language = "auto", mimeType = "audio/webm") {
-  if (!GROQ_API_KEY || process.env.DEMO_MODE === "true") {
-    return Promise.resolve({
-      transcript: "My street road in Ward 12 was dug up 6 months ago and never fixed. I want the contractor name and sanctioned budget.",
-      detected_language: language === "auto" ? "en" : language
-    });
+  if (!GROQ_API_KEY) {
+    return Promise.reject(new Error("GROQ_API_KEY is not configured for Whisper transcription. Please configure your API key for live deployment."));
   }
 
   // Construct multipart payload using native FormData
@@ -32,37 +29,26 @@ export function transcribeAudioWithGroq(audioBuffer, language = "auto", mimeType
     .then(async (res) => {
       if (!res.ok) {
         const errorText = await res.text();
-        console.warn("Groq Whisper API returned non-OK:", res.status, errorText);
-        return {
-          transcript: "My street road in Ward 12 was dug up 6 months ago and never fixed. I want the contractor name and sanctioned budget.",
-          detected_language: language === "auto" ? "en" : language
-        };
+        console.error("Groq Whisper API returned non-OK:", res.status, errorText);
+        throw new Error(`Groq Whisper API error (${res.status}): ${errorText}`);
       }
       const data = await res.json();
       return {
         transcript: data.text || "",
         detected_language: language === "auto" ? "en" : language
       };
-    })
-    .catch((err) => {
-      console.warn("Groq transcription error, falling back to demo transcript:", err.message);
-      return {
-        transcript: "My street road in Ward 12 was dug up 6 months ago and never fixed. I want the contractor name and sanctioned budget.",
-        detected_language: language === "auto" ? "en" : language
-      };
     });
 }
 
 /**
- * Evaluates public records & legal draft using Groq LLaMA or fallback
+ * Evaluates public records & legal draft using Groq LLaMA (strictly live API, zero fallback)
  */
 export async function draftWithGroq(query, issueLocation, applicant, language) {
-  if (!GROQ_API_KEY || process.env.DEMO_MODE === "true") {
-    return generateDemoDraft(query, issueLocation, applicant, language);
+  if (!GROQ_API_KEY) {
+    throw new Error("GROQ_API_KEY is not configured. Please supply a valid Groq API key in your environment for deployment.");
   }
 
-  try {
-    const prompt = `You are a Principal RTI and Indian Administrative Law expert. 
+  const prompt = `You are a Principal RTI and Indian Administrative Law expert. 
 Given a citizen query, issue location, and applicant details, convert the query into a rejection-proof RTI draft under the RTI Act, 2005.
 Apply these rules strictly:
 1. Reframe interrogative "Why" questions into numbered requests for certified copies of official records, work orders, measurement books, or inspection registers.
@@ -87,30 +73,28 @@ Location: ${JSON.stringify(issueLocation)}
 Applicant: ${JSON.stringify(applicant)}
 Language: ${language}`;
 
-    const res = await fetch("https://api.groq.com/openai/v1/chat/completions", {
-      method: "POST",
-      headers: {
-        Authorization: `Bearer ${GROQ_API_KEY}`,
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({
-        model: "llama-3.3-70b-versatile",
-        messages: [{ role: "user", content: prompt }],
-        response_format: { type: "json_object" },
-        temperature: 0.1
-      })
-    });
+  const res = await fetch("https://api.groq.com/openai/v1/chat/completions", {
+    method: "POST",
+    headers: {
+      Authorization: `Bearer ${GROQ_API_KEY}`,
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+      model: "llama-3.3-70b-versatile",
+      messages: [{ role: "user", content: prompt }],
+      response_format: { type: "json_object" },
+      temperature: 0.1
+    })
+  });
 
-    if (!res.ok) {
-      return generateDemoDraft(query, issueLocation, applicant, language);
-    }
-
-    const data = await res.json();
-    const content = data.choices?.[0]?.message?.content;
-    const parsed = JSON.parse(content);
-    return parsed;
-  } catch (err) {
-    console.warn("Groq LLaMA error, falling back to deterministic engine:", err.message);
-    return generateDemoDraft(query, issueLocation, applicant, language);
+  if (!res.ok) {
+    const errorText = await res.text();
+    console.error("Groq LLaMA API error:", res.status, errorText);
+    throw new Error(`Groq LLaMA API error (${res.status}): ${errorText}`);
   }
+
+  const data = await res.json();
+  const content = data.choices?.[0]?.message?.content;
+  const parsed = JSON.parse(content);
+  return parsed;
 }

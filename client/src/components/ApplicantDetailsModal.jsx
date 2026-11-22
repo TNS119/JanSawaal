@@ -8,12 +8,10 @@ export default function ApplicantDetailsModal({
   issueLocation,
   isLoading
 }) {
-  const [name, setName] = useState("Ramesh Kumar");
-  const [address, setAddress] = useState(
-    `H.No 4-2-11, Ramagiri, ${issueLocation?.district || "Nalgonda"}, ${issueLocation?.state || "Telangana"} - 508001`
-  );
-  const [phone, setPhone] = useState("9876543210");
-  const [email, setEmail] = useState("ramesh.kumar@example.com");
+  const [name, setName] = useState("");
+  const [address, setAddress] = useState("");
+  const [phone, setPhone] = useState("");
+  const [email, setEmail] = useState("");
   const [isBpl, setIsBpl] = useState(false);
 
   if (!isOpen) return null;
@@ -29,12 +27,7 @@ export default function ApplicantDetailsModal({
     });
   };
 
-  const fillDemoData = () => {
-    setName("Ramesh Kumar");
-    setAddress(`H.No 4-2-11, Ramagiri, ${issueLocation?.district || "Nalgonda"}, ${issueLocation?.state || "Telangana"} - 508001`);
-    setPhone("9876543210");
-    setEmail("ramesh.kumar@example.com");
-  };
+ 
 
   return (
     <div className="fixed inset-0 z-50 overflow-y-auto bg-slate-900/60 backdrop-blur-sm flex items-center justify-center p-4">
@@ -58,18 +51,6 @@ export default function ApplicantDetailsModal({
 
         {/* Form Body */}
         <form onSubmit={handleSubmit} className="p-6 space-y-4 text-left">
-          {/* Sample Pre-fill Button */}
-          <div className="flex items-center justify-between pb-1">
-            <span className="text-[11px] text-slate-500 font-medium">Quick testing?</span>
-            <button
-              type="button"
-              onClick={fillDemoData}
-              className="text-[11px] text-blue-700 hover:text-blue-900 font-bold"
-            >
-              Fill Sample Details
-            </button>
-          </div>
-
           {/* Full Name */}
           <div>
             <label className="block text-xs font-bold text-slate-700 mb-1">
@@ -118,7 +99,7 @@ export default function ApplicantDetailsModal({
                   type="tel"
                   value={phone}
                   onChange={(e) => setPhone(e.target.value)}
-                  placeholder="9876543210"
+                  placeholder="80XXXXXXXX"
                   className="w-full pl-9 pr-3 py-2 bg-slate-50 border border-slate-300 rounded-lg text-sm text-slate-900 focus:ring-2 focus:ring-blue-600 focus:bg-white"
                 />
               </div>

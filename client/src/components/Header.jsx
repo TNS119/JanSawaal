@@ -5,8 +5,6 @@ import { Shield, BookOpen, Clock, PlayCircle, Globe, Volume2 } from "lucide-reac
 export default function Header({
   language,
   setLanguage,
-  toggleDemoDrawer,
-  isDemoDrawerOpen,
   savedCasesCount = 0
 }) {
   const navigate = useNavigate();
@@ -68,9 +66,8 @@ export default function Header({
             </button>
           </nav>
 
-          {/* Right actions: Language + Demo Drawer Trigger */}
+          {/* Right actions: Language Selector */}
           <div className="flex items-center space-x-3">
-            {/* Language Selector */}
             <div className="flex items-center bg-slate-800 rounded-lg p-1 border border-slate-700 text-xs">
               <Globe className="w-3.5 h-3.5 text-slate-400 ml-1.5 mr-1" />
               <button
@@ -100,19 +97,6 @@ export default function Header({
                 हिन्दी
               </button>
             </div>
-
-            {/* Demo Controls Drawer Toggle Button */}
-            <button
-              onClick={toggleDemoDrawer}
-              className={`flex items-center space-x-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold border transition-all ${
-                isDemoDrawerOpen
-                  ? "bg-amber-500 text-slate-950 border-amber-400 font-bold"
-                  : "bg-slate-800 hover:bg-slate-700 text-amber-300 border-amber-500/40"
-              }`}
-            >
-              <PlayCircle className="w-4 h-4 text-amber-400" />
-              <span>Demo Controls</span>
-            </button>
           </div>
         </div>
       </div>

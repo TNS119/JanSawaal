@@ -24,10 +24,7 @@ export default function QueryIntakeForm({
 
   const textareaRef = useRef(null);
 
-  const availableDistricts = DISTRICTS_BY_STATE[issueLocation.state] || [
-    "Nalgonda",
-    "Hyderabad"
-  ];
+  const availableDistricts = DISTRICTS_BY_STATE[issueLocation.state];
 
   // Set up Pause-Proof recognizer
   useEffect(() => {
@@ -242,33 +239,30 @@ export default function QueryIntakeForm({
                   <button
                     type="button"
                     onClick={() => setLanguage("en")}
-                    className={`px-2 py-0.5 rounded font-bold transition-all ${
-                      language === "en"
+                    className={`px-2 py-0.5 rounded font-bold transition-all ${language === "en"
                         ? "bg-blue-600 text-white"
                         : "text-slate-600 hover:text-slate-900"
-                    }`}
+                      }`}
                   >
                     English
                   </button>
                   <button
                     type="button"
                     onClick={() => setLanguage("te")}
-                    className={`px-2 py-0.5 rounded font-bold transition-all ${
-                      language === "te"
+                    className={`px-2 py-0.5 rounded font-bold transition-all ${language === "te"
                         ? "bg-blue-600 text-white"
                         : "text-slate-600 hover:text-slate-900"
-                    }`}
+                      }`}
                   >
                     తెలుగు
                   </button>
                   <button
                     type="button"
                     onClick={() => setLanguage("hi")}
-                    className={`px-2 py-0.5 rounded font-bold transition-all ${
-                      language === "hi"
+                    className={`px-2 py-0.5 rounded font-bold transition-all ${language === "hi"
                         ? "bg-blue-600 text-white"
                         : "text-slate-600 hover:text-slate-900"
-                    }`}
+                      }`}
                   >
                     हिन्दी
                   </button>
@@ -295,8 +289,8 @@ export default function QueryIntakeForm({
                   language === "te"
                     ? "మీ సమస్యను ఇక్కడ రాయండి లేదా మైక్ నొక్కి మాట్లాడండి (ఉదా: మా వీధిలో తాగునీటి పైపులైన్ పగిలి నీరు రావడం లేదు, లేదా రోడ్డు పనుల బడ్జెట్ మరియు కాంట్రాక్టర్ వివరాలు కావాలి)..."
                     : language === "hi"
-                    ? "अपनी समस्या यहाँ लिखें या माइक दबाकर बोलें..."
-                    : "Type or click the microphone to speak. You can describe your issue in your own words..."
+                      ? "अपनी समस्या यहाँ लिखें या माइक दबाकर बोलें..."
+                      : "Type or click the microphone to speak. You can describe your issue in your own words..."
                 }
                 className="w-full p-4 pr-16 text-slate-900 text-sm sm:text-base leading-relaxed bg-transparent border-0 rounded-xl focus:ring-0 resize-y"
               />
@@ -306,11 +300,10 @@ export default function QueryIntakeForm({
                 type="button"
                 onClick={toggleRecording}
                 title={isRecording ? "Stop Listening" : "Speak to Type"}
-                className={`absolute right-3.5 bottom-3.5 p-3 rounded-full transition-all shadow-sm ${
-                  isRecording
+                className={`absolute right-3.5 bottom-3.5 p-3 rounded-full transition-all shadow-sm ${isRecording
                     ? "bg-red-600 text-white animate-pulse ring-4 ring-red-200"
                     : "bg-blue-700 hover:bg-blue-800 text-white"
-                }`}
+                  }`}
               >
                 {isRecording ? <MicOff className="w-5 h-5" /> : <Mic className="w-5 h-5" />}
               </button>
@@ -329,7 +322,7 @@ export default function QueryIntakeForm({
             </div>
           </div>
 
-          {/* Quick Examples */}
+          {/* Quick Examples
           <div className="pt-1">
             <span className="text-xs font-semibold text-slate-500 mr-2">Examples:</span>
             <div className="flex flex-wrap gap-2 mt-2">
@@ -364,7 +357,7 @@ export default function QueryIntakeForm({
                 Ward 12 Road Repair Budget
               </button>
             </div>
-          </div>
+          </div> */}
 
           {/* Submit Action Button: Exactly 'Check' */}
           <div className="pt-4 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-3">
@@ -376,11 +369,10 @@ export default function QueryIntakeForm({
               type="button"
               disabled={isLoading || !query.trim()}
               onClick={onSubmit}
-              className={`w-full sm:w-auto px-8 py-2.5 rounded-xl font-bold text-sm shadow-sm transition-all flex items-center justify-center space-x-2 ${
-                isLoading || !query.trim()
+              className={`w-full sm:w-auto px-8 py-2.5 rounded-xl font-bold text-sm shadow-sm transition-all flex items-center justify-center space-x-2 ${isLoading || !query.trim()
                   ? "bg-slate-200 text-slate-400 cursor-not-allowed"
                   : "bg-blue-700 hover:bg-blue-800 text-white"
-              }`}
+                }`}
             >
               <span>{isLoading ? "Checking..." : "Check"}</span>
             </button>

@@ -7,7 +7,12 @@ import draftRouter from "./routes/draft.js";
 import appealRouter from "./routes/appeal.js";
 import pdfRouter from "./routes/pdf.js";
 
-dotenv.config();
+import path from "path";
+import { fileURLToPath } from "url";
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+dotenv.config({ path: path.resolve(__dirname, ".env") });
+dotenv.config({ path: path.resolve(__dirname, "../.env") });
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -26,15 +31,18 @@ app.use("/api/generate-pdf", pdfRouter);
 
 // Health Check
 app.get("/api/health", (req, res) => {
+  const hasGroq = Boolean(process.env.GROQ_API_KEY);
+  const hasGemini = Boolean(process.env.GEMINI_API_KEY);
   res.json({
     status: "ok",
     app: "JanSawaal (Voice-First & Fast-Track RTI Engine)",
-    demo_mode: process.env.DEMO_MODE === "true" || (!process.env.GROQ_API_KEY && !process.env.GEMINI_API_KEY),
+    ai_status: hasGroq ? "GROQ_LLAMA_ACTIVE" : hasGemini ? "GEMINI_ACTIVE" : "MISSING_API_KEYS",
+    live_deployment: true,
     timestamp: new Date().toISOString()
   });
 });
 
 app.listen(PORT, () => {
   console.log(`[JanSawaal Server] Running on http://localhost:${PORT}`);
-  console.log(`[JanSawaal Server] Mode: ${process.env.DEMO_MODE === "true" ? "DEMO_MODE (Offline/Deterministic)" : "LIVE API"}`);
+  console.log(`[JanSawaal Server] Live Deployment Mode: Strictly Real API (Groq: ${Boolean(process.env.GROQ_API_KEY)}, Gemini: ${Boolean(process.env.GEMINI_API_KEY)})`);
 });

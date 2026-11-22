@@ -255,16 +255,7 @@ export default function App() {
       <Header
         language={language}
         setLanguage={setLanguage}
-        toggleDemoDrawer={() => setIsDemoDrawerOpen(!isDemoDrawerOpen)}
-        isDemoDrawerOpen={isDemoDrawerOpen}
         savedCasesCount={savedCases.length}
-      />
-
-      {/* Demo Controls Drawer */}
-      <DemoControlDrawer
-        isOpen={isDemoDrawerOpen}
-        onClose={() => setIsDemoDrawerOpen(false)}
-        onSelectScenario={handleSelectScenario}
       />
 
       {/* Main Routed Content Area - Supported by Browser Back & Forward */}

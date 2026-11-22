@@ -19,13 +19,16 @@ router.post("/", async (req, res) => {
 
     let draftData;
 
-    // Prefer Groq if key exists, else Gemini if key exists, else fallback to high-fidelity demo engine
-    if (process.env.GROQ_API_KEY && process.env.DEMO_MODE !== "true") {
+    // Route strictly to configured LLM (Groq LLaMA or Gemini)
+    if (process.env.GROQ_API_KEY) {
       draftData = await draftWithGroq(query, issueLocation, applicant, language);
-    } else if (process.env.GEMINI_API_KEY && process.env.DEMO_MODE !== "true") {
+    } else if (process.env.GEMINI_API_KEY) {
       draftData = await draftWithGemini(query, issueLocation, applicant, language);
     } else {
-      draftData = generateDemoDraft(query, issueLocation, applicant, language);
+      return res.status(503).json({
+        error: "AI_SERVICE_UNCONFIGURED",
+        message: "Live deployment requires a valid GROQ_API_KEY or GEMINI_API_KEY in server environment variables. Please provide your API key for live AI generation."
+      });
     }
 
     // Strictly enforce RTI Online Sanitizer on portal_safe_text

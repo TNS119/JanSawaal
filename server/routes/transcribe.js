@@ -17,11 +17,17 @@ router.post("/", upload.single("audio"), async (req, res) => {
     const language = req.body?.language || "auto";
     const mimeType = req.file?.mimetype || "audio/webm";
 
+    if (!process.env.GROQ_API_KEY) {
+      return res.status(503).json({
+        error: "STT_SERVICE_UNCONFIGURED",
+        message: "Server-side Whisper transcription requires a valid GROQ_API_KEY in server environment variables. (Browser Web Speech recognition remains active directly on the client)."
+      });
+    }
+
     if (!req.file || !req.file.buffer) {
-      // In demo mode or if audio payload is synthetic/empty
-      return res.json({
-        transcript: "My street road in Ward 12 was dug up 6 months ago and never fixed. I want the contractor name and sanctioned budget.",
-        detected_language: language === "auto" ? "en" : language
+      return res.status(400).json({
+        error: "INVALID_AUDIO_PAYLOAD",
+        message: "A valid audio file buffer is required for speech-to-text processing."
       });
     }
 
