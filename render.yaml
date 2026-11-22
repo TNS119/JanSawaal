@@ -1,9 +1,8 @@
 services:
   - type: web
-    name: jansawaal
+    name: jansawaal-app
     env: node
     plan: free
-    region: oregon
     buildCommand: npm run build
     startCommand: npm start
     envVars:
@@ -11,7 +10,3 @@ services:
         value: production
       - key: DEMO_MODE
         value: "false"
-      - key: GROQ_API_KEY
-        sync: false
-      - key: GEMINI_API_KEY
-        sync: false

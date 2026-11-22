@@ -1,48 +1,72 @@
 # JanSawaal (Voice-First & Fast-Track RTI Engine)
 
-An AI-powered civic-tech platform empowering Indian citizens to access government information and resolve public grievances in **English, Telugu, and Hindi** through a record-first, voice-first approach.
+An AI-powered civic-tech platform empowering Indian citizens to access government information and redress public grievances in **English, Telugu, and Hindi** through a record-first, voice-first approach under the Right to Information (RTI) Act, 2005 and CPGRAMS.
 
 ---
 
-## Key Features
+## Key Capabilities
 
-1. **Checks Public Records First (0-Day Direct Answer):** Before forcing citizens to file an RTI, queries are matched against Section 4(1)(b) proactive disclosures, welfare portals, and municipal dashboards. If information is already public, it is delivered instantly with zero forms, zero fees, and zero waiting.
-2. **Rejection-Proof RTI Reframer:** Citizen questions are reframed into legally certified record requests under Section 6(1) and Section 2(j). Interrogative "Why" questions are eliminated, preventing automatic rejection under Section 2(f).
-3. **Strict RTI Online Sanitizer:** Sanitizes text to $\le 3,000$ characters and enforces the strict character set allowed by `rtionline.gov.in` (`A-Z a-z 0-9 , . - _ ( ) / @ : & ? \ % \s`).
-4. **Space-Free PDF Filenames:** Downloads official RTI and Appeal PDFs guaranteed to have zero spaces in their filenames, avoiding portal upload rejection.
-5. **Central vs. State Jurisdiction Warning:** Identifies municipal and state matters and explicitly warns citizens not to waste money filing on `rtionline.gov.in`.
-6. **Live SLA Tracker & SLA Breach Simulator:** Tracks 48-Hour, 3-Day, and 30-Day statutory deadlines in "My Cases". Includes a "Simulate SLA Breach (No Reply)" demo button that automatically unlocks a free **Section 19(1) First Appeal PDF** under the Section 7(6) free information mandate.
+1. **Instant Public Record Check (0-Day Direct Answer):** Before requiring citizens to file an application, JanSawaal checks Section 4(1)(b) proactive public disclosures, official government portals, and municipal databases. If the information or policy is already published, it is delivered immediately with zero forms, zero fees, and zero waiting time.
+2. **Pause-Proof Multilingual Voice Intake:** Citizens can speak naturally in English, Telugu (`te-IN`), or Hindi (`hi-IN`). The voice-to-type engine accumulates speech across natural thinking pauses without wiping previous sentences, and includes a one-click **Clear** button.
+3. **Rejection-Proof RTI Reframer:** Automatically reframes informal citizen grievances into legally structured, numbered record requests under Section 6(1) and Section 2(j). Eliminates interrogative "Why" questions that Public Information Officers (PIOs) routinely cite to reject applications under Section 2(f).
+4. **Portal-Safe Text Sanitizer:** Automatically enforces the strict 3,000-character limit and character whitelist required by the central `rtionline.gov.in` portal (`[A-Za-z0-9,.\-_()/@:&?\\%\s]`), stripping disallowed characters (quotes, semicolons, exclamations, emojis).
+5. **Space-Free PDF Generator:** Generates downloadable official application PDFs with space-free filenames (e.g. `RTI_STANDARD_RTI_Nalgonda_Ward_12_20261122.pdf`), guaranteeing compliance with government portal attachment upload rules.
+6. **Smart Central vs. State/Municipal Jurisdiction Routing:** Automatically detects whether an issue falls under Central Ministries or State/Municipal authorities (e.g. CDMA Telangana, HMWSSB, TSSPDCL, State Police), warning citizens against filing municipal matters on the central portal and directing them to the verified, active official portal.
+7. **Statutory SLA Tracker & 1-Click First Appeal:** Tracks statutory response deadlines (48 Hours for Section 7(1) Life & Liberty urgent matters; 30 Days for standard requests). When an authority fails to respond within 30 days (Deemed Refusal), JanSawaal unlocks a one-click **Section 19(1) First Appeal Memorandum** at ₹0 fee under Section 7(6).
+8. **Browser-Native History Navigation:** Fully integrated with browser routing (`react-router-dom`), allowing smooth Back and Forward navigation across all views without state loss, with automatic audio shutoff on route transitions.
 
 ---
 
-## Repository Structure
+## System Architecture
 
 ```text
 IdeaForge2/
-├── AGENTS.md                       # Agent instructions, boundaries & commands
-├── CONTEXT.md                      # File-level architecture registry
+├── AGENTS.md                       # Machine-targeted agent guidelines & constraints
+├── CONTEXT.md                      # File-level architecture registry with line anchors
 ├── rti_draft_mvp_specification.md  # Official product specification
-├── implementation_plan.md          # Implementation plan & contracts
+├── implementation_plan.md          # Architectural plan & API contracts
 ├── .env.example                    # Environment variable template
-├── server/                         # Node.js + Express Backend
+├── server/                         # Node.js Express Backend
 │   ├── data/
-│   │   ├── publicRecords.json      # 8+ verified public records
-│   │   └── departments.json        # 30 Central + 20 State/Municipal directories
-│   ├── routes/                     # REST API endpoints
-│   ├── utils/                      # Sanitizer & PDF generator
-│   └── services/                   # Groq, Gemini & deterministic demo engine
-└── client/                         # React 18 + Vite + Tailwind CSS
+│   │   ├── publicRecords.json      # Proactive Section 4 public disclosures
+│   │   └── departments.json        # Central Ministries & State/Municipal authorities
+│   ├── routes/
+│   │   ├── transcribe.js           # Audio transcription endpoint
+│   │   ├── records.js              # Section 4 public records matching
+│   │   ├── draft.js                # Section 6(1) RTI & Section 7(1) urgent drafting
+│   │   ├── appeal.js               # Section 19(1) First Appeal generation
+│   │   └── pdf.js                  # Space-free binary PDF streaming
+│   ├── utils/
+│   │   ├── sanitizer.js            # 3,000-char limiter & character whitelist sanitizer
+│   │   └── pdfGenerator.js         # PDFKit legal document layout engine
+│   └── services/
+│       ├── groqService.js          # Groq Whisper STT & LLaMA 3.3 70B legal reasoning
+│       ├── geminiService.js        # Google Gemini 2.5 Flash legal structured output
+│       └── demoService.js          # Domain-specific civic classification engine
+└── client/                         # React 18 + Vite + Tailwind CSS Frontend
     └── src/
-        ├── components/             # High-contrast accessible UI components
-        └── utils/                  # Speech, TTS, and API wrappers
+        ├── components/
+        │   ├── Header.jsx          # Civic brand header & language switcher
+        │   ├── WelcomeScreen.jsx   # Plain-language welcome & privacy guarantees
+        │   ├── QueryIntakeForm.jsx # Location selector, pause-proof voice & 'Check' button
+        │   ├── DirectAnswerCard.jsx# 0-Day instant answer display with TTS readback
+        │   ├── DraftAndGuideView.jsx# Rejection-proof draft, space-free PDF & portal guide
+        │   ├── PortalFilingGuide.jsx# Verified portal redirection & step-by-step guide
+        │   ├── TrackerDashboard.jsx # Statutory SLA countdown & First Appeal unlock
+        │   └── VoiceClarification.jsx# Conversational follow-up for missing context
+        └── utils/
+            ├── api.js              # Backend REST API client
+            ├── speechRecognition.js# Multilingual pause-proof speech accumulator
+            ├── tts.js              # Natural neural voice synthesis
+            └── sanitizer.js        # Client-side input character validation
 ```
 
 ---
 
-## Quickstart
+## Quickstart & Installation
 
 ### 1. Prerequisites
-- Node.js `v18+` (Tested on `v22.23.2`)
+- Node.js `v18+` (Tested on `v22.x`)
 - npm `v9+`
 
 ### 2. Backend Setup
@@ -51,18 +75,17 @@ cd server
 npm install
 npm run dev
 ```
-The server will start on `http://localhost:5000`. By default, it operates in **`DEMO_MODE=true`**, providing deterministic responses without needing external API keys.
+The server will start on `http://localhost:5000`.
 
-To use live AI models, set your keys in `server/.env`:
+To enable external AI models for Whisper transcription and LLaMA / Gemini legal drafting, configure your API keys in `server/.env`:
 ```env
 PORT=5000
-DEMO_MODE=false
-GROQ_API_KEY=your_groq_key_here
-GEMINI_API_KEY=your_gemini_key_here
+GROQ_API_KEY=your_groq_api_key_here
+GEMINI_API_KEY=your_gemini_api_key_here
 ```
 
 ### 3. Frontend Setup
-In a new terminal:
+In a separate terminal:
 ```bash
 cd client
 npm install
@@ -72,16 +95,37 @@ The client will start on `http://localhost:5173`.
 
 ---
 
-## 3 One-Click Judge Demo Scenarios
+## Verified Core User Journeys
 
-Use the **"Demo Controls"** drawer in the header to run all three scenarios instantly:
+### Journey 1: 0-Day Instant Resolution (Section 4 Public Disclosure)
+- **Input:** *"Do I have to pay an RTI fee if I have a BPL card?"*
+- **Outcome:** The engine immediately identifies the policy in Section 4 public disclosures.
+- **Result:** Bypasses personal detail forms entirely, delivers the direct rule under Section 7(5) of the RTI Act (100% fee waiver for BPL citizens), provides TTS voice playback, and links directly to the official source portal.
 
-- **Scenario A (Path A — 0-Day Instant Answer):**
-  *"Do I have to pay an RTI fee if I have a BPL card?"*
-  $\rightarrow$ Bypasses applicant form completely; returns Section 7(5) exemption rule, official source link, and TTS readback.
-- **Scenario B (Path B — 48-Hour Urgent RTI):**
-  *"My father is admitted in Govt General Hospital, Nalgonda and needs his MRI report urgently to shift hospitals."*
-  $\rightarrow$ Prompts for applicant details; triggers 48-Hour Section 7(1) Life & Liberty track; downloads `RTI_URGENT_48HR_...pdf` and provides hospital PIO hand-delivery guide.
-- **Scenario C (Path B — State RTI + SLA Breach Escalation):**
-  *"Ward 12 road in Nalgonda was dug up 6 months ago; I want the sanctioned budget and contractor details."*
-  $\rightarrow$ Flags State/Municipal jurisdiction; sanitizes text to $\le 3,000$ characters; downloads `RTI_STANDARD_RTI_...pdf`; saves to "My Cases". Clicking **"Simulate SLA Breach (No Reply)"** flips status to `OVERDUE` and generates a free **Section 19(1) First Appeal PDF**.
+### Journey 2: 48-Hour Urgent RTI (Section 7(1) Life & Liberty)
+- **Input:** *"My father is admitted in Govt General Hospital, Nalgonda and needs his MRI report urgently to shift hospitals."*
+- **Outcome:** Classifies under Section 7(1) Life & Liberty provisions.
+- **Result:** Generates an urgent 48-Hour RTI application demanding immediate medical records release, applies the 3,000-character portal sanitizer, formats a space-free PDF, and provides hand-delivery instructions to the Hospital Public Information Officer.
+
+### Journey 3: State Municipal Public Works & SLA Escalation
+- **Input:** *"Ward 12 road in Nalgonda was dug up 6 months ago; I want the sanctioned budget and contractor details."*
+- **Outcome:** Identifies Municipal Administration jurisdiction (CDMA Telangana) and warns against filing on the central portal.
+- **Result:** Reframes questions into 4 certified record requests under Section 6(1) (administrative sanction, contractor details, completion deadlines, measurement book pages). Saving to "Track Applications" starts a 30-day statutory countdown. If no reply is received within 30 days, it automatically generates a ₹0 **Section 19(1) First Appeal Memorandum** citing deemed refusal.
+
+---
+
+## Automated Test Suite
+
+To run backend unit tests verifying text sanitization, character sets, space-free filenames, public record matching, and PDF streaming:
+```bash
+cd server
+npm test
+```
+All 9 automated unit tests run using the native Node.js test runner.
+
+---
+
+## Legal Compliance & Privacy Guardrails
+- **No Aadhaar / PAN Collection:** JanSawaal never asks for or stores national identity cards.
+- **RTI Act Compliance:** Aligns strictly with Section 2(j) (right to inspect and obtain certified records), Section 6(1) (application procedure), Section 7(1) (30-day standard and 48-hour life/liberty timelines), Section 7(5) (BPL fee waiver), and Section 19(1) (First Appeal).
+- **Portal Compatibility:** Formatted to upload seamlessly to `rtionline.gov.in`, `pgportal.gov.in`, and State portals.

@@ -28,7 +28,7 @@ Dense, actionable instructions for AI agents operating on this repository.
 1. **Sanitize Portal Text:** Enforce `sanitizeRtiText` ($\le 3,000$ characters and allowed RTI Online charset `[A-Za-z0-9,.\-_()/@:&?\\%\s]`).
 2. **Space-Free PDF Filenames:** Guarantee downloaded PDF filenames contain zero spaces (e.g., `RTI_STANDARD_RTI_Nalgonda_Ward_12_20261122.pdf`).
 3. **In-Memory Audio Handling:** Use `multer.memoryStorage()` for all audio uploads. Never write unmanaged temporary audio files to disk.
-4. **Offline Resilience:** Maintain `DEMO_MODE=true` deterministic fallbacks across all API endpoints so tests and demos run without external keys.
+4. **Deterministic Engine:** Maintain built-in civic classification and public records evaluation across all API endpoints.
 5. **Direct Answer Gate:** Return Section 4 public disclosures immediately without collecting citizen personal information.
 
 ### Ask First (⚠️)

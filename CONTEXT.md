@@ -24,7 +24,7 @@ This registry maps every file in the JanSawaal repository to its responsibility,
 - [`server/utils/pdfGenerator.js`](file:///c:/Users/nikhi/Downloads/IdeaForge2/server/utils/pdfGenerator.js#L1-L199)
   - **Role:** `PDFDocument` buffer streaming for Section 6(1) RTIs, Section 7(1) 48-Hour Urgent requests, Section 19(1) First Appeals, and CPGRAMS petitions with official JanSawaal footer.
 - [`server/services/demoService.js`](file:///c:/Users/nikhi/Downloads/IdeaForge2/server/services/demoService.js#L1-L554)
-  - **Role:** Deterministic zero-latency fallback engine for public record matching, clarification detection, dynamic 11-topic legal draft generation, and first appeals.
+  - **Role:** Intelligent civic classification engine for public record matching, clarification detection, dynamic 11-topic legal draft generation, and first appeals.
 - [`server/services/groqService.js`](file:///c:/Users/nikhi/Downloads/IdeaForge2/server/services/groqService.js#L1-L90)
   - **Role:** Groq Whisper audio transcription (`whisper-large-v3-turbo`) and LLaMA legal reframing (`llama-3.3-70b-versatile`).
 - [`server/services/geminiService.js`](file:///c:/Users/nikhi/Downloads/IdeaForge2/server/services/geminiService.js#L1-L45)
