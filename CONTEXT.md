@@ -4,6 +4,14 @@ This registry maps every file in the JanSawaal repository to its responsibility,
 
 ---
 
+## Root Workspace
+- [`index.js`](file:///c:/Users/nikhi/Downloads/IdeaForge2/index.js#L1-L3)
+  - **Role:** Root entrypoint forwarding execution directly to `server/index.js` so running `node index.js` from the repository root works out of the box.
+- [`scripts/dev.js`](file:///c:/Users/nikhi/Downloads/IdeaForge2/scripts/dev.js#L1-L28)
+  - **Role:** Full-stack development process launcher orchestrating both `server` (port 5000) and `client` (port 5173) concurrently on `npm run dev`.
+- [`package.json`](file:///c:/Users/nikhi/Downloads/IdeaForge2/package.json#L1-L15)
+  - **Role:** Root npm package configuration with workspace shortcuts (`npm run dev`, `npm run dev:server`, `npm run dev:client`, `npm start`, `npm run build`, `npm test`).
+
 ## Backend (`server/`)
 
 ### Core Entry & Configuration
