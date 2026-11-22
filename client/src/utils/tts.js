@@ -141,7 +141,10 @@ export function speakText(text, language = "en", onStart = () => {}, onEnd = () 
   utterance.onstart = onStart;
   utterance.onend = onEnd;
   utterance.onerror = (e) => {
-    console.warn("TTS Playback issue:", e);
+    // Normal Chromium/Edge cancellation on route changes or stop calls
+    if (e.error !== "canceled" && e.error !== "interrupted") {
+      console.warn("TTS Playback issue:", e);
+    }
     onEnd();
   };
 
